@@ -4,20 +4,20 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const twilio = require('twilio');
 const cors = require('cors');
+const app = express();
+const port = 3001;
 
+const corsOptions = {
+  origin: 'https://navgrocery.s3.us-east-1.amazonaws.com',  // S3 domain
+  methods: 'GET,POST,PUT,DELETE',
+};
+app.use(cors((corsOptions)));
 // Twilio credentials
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 const twilioPhoneNumber = process.env.TWILIO_PHONE_NUMBER;
 
 const client = require('twilio')(accountSid, authToken);
-
-
-const app = express();
-const port = 3001;
-
-// Enable CORS for all origins
-app.use(cors());
 
 // Use body parser to handle JSON data
 app.use(bodyParser.json());
