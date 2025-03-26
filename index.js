@@ -7,11 +7,11 @@ const cors = require('cors');
 const app = express();
 const port = 3001;
 
-const corsOptions = {
-  origin: 'https://navgrocery.s3.us-east-1.amazonaws.com',  // S3 domain
-  methods: 'GET,POST,PUT,DELETE',
-};
-app.use(cors((corsOptions)));
+// const corsOptions = {
+//   origin: 'https://navgrocery.s3.us-east-1.amazonaws.com',  // S3 domain
+//   methods: 'GET,POST,PUT,DELETE',
+// };
+// app.use(cors());
 // Twilio credentials
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
